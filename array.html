@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+
+<script>
+    // let arr=["apple","mango","banana","kiwi"]
+    // first=["bus","car"]
+    // second=[[1,2],[4,5],[6,8]]
+    // console.log(arr.length);
+    // console.log(arr.toString());
+    // console.log(arr.join(" "));
+    // console.log(arr.at(2));
+    // console.log(arr.pop());
+    // console.log(arr.push("orange"));
+    // console.log(arr.shift());
+    // console.log(arr.unshift("grape"));
+    // console.log(arr.concat(first));
+    // console.log(arr.copyWithin(2,0,3));
+    // console.log(second.flat());
+    // console.log(arr.slice(1,3));
+    // console.log(arr.splice(0,2));
+
+    let n=parseInt(prompt("enter the limit :"))
+    let arr=[];
+    for (i=1;i<n+1;i++){
+        let a=parseInt(prompt("enter the elements :"));
+        arr.push(a);
+    }
+    let y=arr.filter(element =>element === 0).length;
+    arr=arr.filter(element => element !== 0);
+    for (let j=0;j<y;j++){
+        arr.push(0)
+    }
+    console.log(arr);
+
+
+
+
+
+    
+</script>
+</body>
+</html>

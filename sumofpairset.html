@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+var n=parseInt(prompt("Enter the array limit :"))
+var arr=[]
+for (i=0;i<n;i++){
+    var a=parseInt(prompt("enter the elements :"))
+    arr.push(a)
+}
+arr.sort(function(a, b){return a - b});
+console.log(arr);
+var target=parseInt(prompt("Enter the target:"))
+var left=0
+var right=arr.length-1;
+while(left<right){
+    var sum=arr[left]+arr[right];
+    if (sum<target){
+    left++;
+    } else if (sum>target){
+    right--;
+    } else{
+    console.log(left+" "+right);
+    right--;
+    left++;
+    }
+}
+</script>
+</body>
+</html>
+
+
+

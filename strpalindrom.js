@@ -59,52 +59,110 @@ const person = {
 //         console.log(i);
 // }
 
-let products=[
-    {pid:100,pName:'apple',band:'5g',price:120000,display:'led'},
-    {pid:101,pName:'samsaung',band:'5g',price:45000,display:'led'},
-    {pid:102,pName:'blackberry',band:'4g',price:50000,display:'led'},
-    {pid:103,pName:'nokia',band:'3g',price:1200,display:'lcd'},
-    {pid:104,pName:'motorola',band:'4g',price:10000,display:'lcd'}
-]
-let p=products.map(products=>products.pName)
-console.log(p);
-// for (let i in p){
-//     console.log(p[i]);
+// let products=[
+//     {pid:100,pName:'apple',band:'5g',price:120000,display:'led'},
+//     {pid:101,pName:'samsaung',band:'5g',price:45000,display:'led'},
+//     {pid:102,pName:'blackberry',band:'4g',price:50000,display:'led'},
+//     {pid:103,pName:'nokia',band:'3g',price:1200,display:'lcd'},
+//     {pid:104,pName:'motorola',band:'4g',price:10000,display:'lcd'}
+// ]
+// let p=products.map(products=>products.pName)
+// console.log(p);
+// // for (let i in p){
+// //     console.log(p[i]);
+// //     }
+// let m=products.map(products=>products.display)
+// let y=[]
+// for (let i in m){
+//     if (m[i]=="lcd"){
+//         y.push(p[i]);
 //     }
-let m=products.map(products=>products.display)
-let y=[]
-for (let i in m){
-    if (m[i]=="lcd"){
-        y.push(p[i]);
+// }
+// console.log(y);
+// let b=products.map(products=>products.band)
+// let x=[]
+// for (let i in b){
+//     if (b[i]=="5g"){
+//         x.push(p[i]);
+//     }
+// }
+// console.log(x);
+// let f=products.map(products=>products.price)
+// let l=[]
+// let largest = f.reduce((a,b)=>a>b?a:b)
+// for (let i in f){
+//     if (f[i]==largest)
+//         l.push(p[i]);
+// }
+// console.log(l);
+
+// let c=products.map(products=>products.price)
+// let s=[]
+// let smallest = c.reduce((a,b)=>a<b?a:b)
+// for (let i in c){
+//     if (c[i]==smallest)
+//         s.push(p[i]);
+// }
+// console.log(s);
+
+
+const obj = {
+    a: {
+        a1: 1,
+        a2: 2,
+        a3: 3
+    },
+    b: {
+        b1: 3,
+        b2: 4,
+        b3: 5,
+        z: {
+            z1: 0,
+            z2: -1
+        }
+    },
+    c: 5,
+    d: 6
+}
+// const x = {
+//     ...obj.a,
+//     ...obj.b,
+//     ...obj.b.z,
+//     c: obj.c,
+//     d: obj.d
+
+// }
+// delete x.z;
+// console.log(x);
+
+
+let result = {}
+
+function falttenObj(obj) {
+
+    let primaryKeyObj = {}
+
+    for (let pk in obj) {
+
+        primaryKeyObj = obj[pk]
+
+        if (typeof primaryKeyObj == 'object') {
+
+            falttenObj(primaryKeyObj)
+
+
+        } else {
+            result[pk] = obj[pk]
+
+        }
+
     }
+
+    // console.log(primaryKeyObj);
+
+    return result
+
 }
-console.log(y);
-let b=products.map(products=>products.band)
-let x=[]
-for (let i in b){
-    if (b[i]=="5g"){
-        x.push(p[i]);
-    }
-}
-console.log(x);
-let f=products.map(products=>products.price)
-let l=[]
-let largest = f.reduce((a,b)=>a>b?a:b)
-for (let i in f){
-    if (f[i]==largest)
-        l.push(p[i]);
-}
-console.log(l);
-
-let c=products.map(products=>products.price)
-let s=[]
-let smallest = c.reduce((a,b)=>a<b?a:b)
-for (let i in c){
-    if (c[i]==smallest)
-        s.push(p[i]);
-}
-console.log(s);
 
 
-
-
+console.log(falttenObj(obj))
